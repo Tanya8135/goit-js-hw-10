@@ -44,8 +44,8 @@ inputSearch.addEventListener('input', handleInput);
 function updateCountriesList(countries) {
     countryList.innerHTML = '';
     countries.forEach(country => {
-        const countriesItem = document.createElement('div');
-        countriesItem.innerHTML = [
+        const countryInfo = document.createElement('div');
+        countryInfo.innerHTML = [
             `<li class="item-country">
             <div class="flag-box">
             <img src="${country.flag}" alt="${country.name}" class="flag">
@@ -57,7 +57,7 @@ function updateCountriesList(countries) {
             <p class="info-text">${country.languages}</p>
             </div>
             </li>`].join('');
-        countryList.appendChild(countriesItem);
+        countryList.appendChild(countryInfo);
     });
 }
 

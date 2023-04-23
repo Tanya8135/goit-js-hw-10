@@ -19,6 +19,35 @@ body {
   margin-bottom: 16px;
 }
 
+.country-list {
+  list-style: none;
+}
+
+.item-country {
+  display: flex;
+  /* justify-content: center; */
+  align-items: baseline;
+}
+
+.flag-box {
+  padding-top: 30px;
+}
+
 .flag {
-  width: 100px;
+  width: 50px;
+}
+
+.info-box {
+  margin-left: 16px;
+  transform: translateY(-5px);
+}
+
+.title-name {
+  margin: 0;
+}
+
+.info-text {
+  margin: 0;
+  padding: 4px 0;
+  font-weight: 500;
 }

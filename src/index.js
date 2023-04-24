@@ -11,18 +11,15 @@ const DEBOUNCE_DELAY = 300;
 
 const handleInput = debounce((event) => {
     const searchTerm = event.target.value.trim();
-    if (searchTerm !== '') { /* Перевіряємо, чи не є введене значення порожнім рядком */
+    if (searchTerm !== '') {
         fetchCountries(searchTerm)
             .then(countries => {
                 if (countries.length > 10) {
                     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
                 } else if (countries.length > 1 && countries.length <= 10) {
-                    /* Оновлюємо розмітку списку країн */
+                    updateCountriesListShort(countries);
+                } else if (countries.length === 1) {
                     updateCountriesList(countries);
-                } else {
-                    /* Очищуємо розмітку списку країн
-                       якщо введене значення порожній рядок */
-                    clearCountriesList();
                 }
             })
             .catch(err => {
@@ -37,10 +34,26 @@ const handleInput = debounce((event) => {
     }
 }, DEBOUNCE_DELAY);
 
-/* Додаємо обробник події на input */
 inputSearch.addEventListener('input', handleInput);
 
-/* Оновлення розмітки html списку країн */
+function updateCountriesListShort(countries) {
+    countryList.innerHTML = '';
+    countries.forEach(country => {
+        const countryInfo = document.createElement('div');
+        countryInfo.innerHTML = [
+            `<li class="item-country">
+            <div class="flag-box">
+            <img src="${country.flag}" alt="${country.name}" class="flag">
+            </div>
+            <div class="info-box">
+            <h2 class="title-name">${country.name}</h2>
+            </div>
+            </li>`].join('');
+        countryList.appendChild(countryInfo);
+    });
+}
+
+
 function updateCountriesList(countries) {
     countryList.innerHTML = '';
     countries.forEach(country => {
@@ -61,7 +74,6 @@ function updateCountriesList(countries) {
     });
 }
 
-// Видалення списку країн
 function clearCountriesList() {
     countryList.innerHTML = '';
 }

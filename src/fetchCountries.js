@@ -1,9 +1,3 @@
-// export const fetchCountries = async (name) => {
-//     const response = await fetch(`https://restcountries.com/v2/name/${name}?fields=name.official,capital,population,flags.svg,languages`);
-//     const countries = await response.json();
-//     return countries;
-//   };
-
 import Notiflix from 'notiflix';
 
 const URL_BASE = 'https://restcountries.com/v3.1/name/';

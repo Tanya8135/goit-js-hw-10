@@ -43,7 +43,7 @@ function updateCountriesListShort(countries) {
         countryInfo.innerHTML = [
             `<li class="item-country">
             <div class="flag-box">
-            <img src="${country.flag}" alt="${country.name}" class="flag">
+            <img src="${country.flags}" alt="${country.name}" class="flag">
             </div>
             <div class="info-box">
             <h2 class="title-name">${country.name}</h2>
@@ -61,7 +61,7 @@ function updateCountriesList(countries) {
         countryInfo.innerHTML = [
             `<li class="item-country">
             <div class="flag-box">
-            <img src="${country.flag}" alt="${country.name}" class="flag">
+            <img src="${country.flags}" alt="${country.name}" class="flag">
             </div>
             <div class="info-box">
             <h2 class="title-name">${country.name}</h2>
